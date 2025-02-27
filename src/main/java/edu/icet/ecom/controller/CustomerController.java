@@ -17,7 +17,6 @@ public class CustomerController {
     @PostMapping("/add")
     public void addCustomer(@RequestBody Customer customer){
         service.addCustomer(customer);
-        System.out.println(customer);
     }
 
     @GetMapping("/get-all")
@@ -25,4 +24,13 @@ public class CustomerController {
         return service.getAll();
     }
 
+    @DeleteMapping("/delete/{id}")
+    public void deleteCustomer(@PathVariable Integer id){
+        service.deleteCustomer(id);
+    }
+
+    @PutMapping("/update-customer")
+    public void updateCustomer(@RequestBody Customer customer){
+        service.updateCustomer(customer);
+    }
 }
